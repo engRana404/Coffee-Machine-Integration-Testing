@@ -63,6 +63,22 @@ public class CoffeeMachineTest {
         Assertions.assertEquals(490, coffeeMachine.getCoffee_powder());
         Assertions.assertEquals(1, coffeeMachine.getMilk());
         Assertions.assertEquals(1.8, coffeeMachine.getWater());
+        //testing the else
+        // TODO: 5/3/2023 test the else statement
+        coffeeMachine.CleanMachine();
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        coffeeMachine.BlackCoffee();
+        String actual = outputStream.toString();
+
+        String expected = String.format("\nAvailable Coffee Power(Gram) 0.0%sAvailable Water(Liter) 0.0%s" +
+                "\nSome Iteams Are Not Available, Please Fill before Making Coffee.%s",
+                System.lineSeparator(), System.lineSeparator(), System.lineSeparator());
+
+        Assert.assertEquals(expected,actual);
+
     }
     @Test
     public void testMilkCoffee(){
@@ -75,10 +91,12 @@ public class CoffeeMachineTest {
         Assertions.assertEquals(490, coffeeMachine.getCoffee_powder());
         Assertions.assertEquals(0.6, coffeeMachine.getMilk());
         Assertions.assertEquals(1.8, coffeeMachine.getWater());
+        //testing the else
+        // TODO: 5/3/2023 test the else statement
     }
     @Test
     public void testStart(){
-
+        // TODO: 5/3/2023
     }
 
 }
