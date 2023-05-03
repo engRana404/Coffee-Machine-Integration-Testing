@@ -34,6 +34,7 @@ public class CoffeeMachineTest {
         coffeeMachine = new CoffeeMachine();
     }
 
+    @Before
     @Test
     public void testSetIngredient() {
         coffeeMachine.SetIngredient();
@@ -41,6 +42,15 @@ public class CoffeeMachineTest {
         Assertions.assertEquals(500.0, coffeeMachine.getCoffee_powder());
         Assertions.assertEquals(1, coffeeMachine.getMilk());
         Assertions.assertEquals(2, coffeeMachine.getWater());
+    }
+
+    @Test
+    public void testCleanMachine() {
+        coffeeMachine.CleanMachine();
+
+        Assertions.assertEquals(0, coffeeMachine.getCoffee_powder());
+        Assertions.assertEquals(0, coffeeMachine.getMilk());
+        Assertions.assertEquals(0, coffeeMachine.getWater());
     }
 
 }
