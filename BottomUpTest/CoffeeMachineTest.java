@@ -53,5 +53,32 @@ public class CoffeeMachineTest {
         Assertions.assertEquals(0, coffeeMachine.getMilk());
         Assertions.assertEquals(0, coffeeMachine.getWater());
     }
+    @Test
+    public void testBlackCoffee(){
+        coffeeMachine.SetIngredient();
+        //coffeepowder-10
+        //water-0.2
+        //count++
+        coffeeMachine.BlackCoffee();
+        Assertions.assertEquals(490, coffeeMachine.getCoffee_powder());
+        Assertions.assertEquals(1, coffeeMachine.getMilk());
+        Assertions.assertEquals(1.8, coffeeMachine.getWater());
+    }
+    @Test
+    public void testMilkCoffee(){
+        coffeeMachine.SetIngredient();
+        //coffeepowder-10
+        //water-0.2
+        //milk-0.4
+        //count++
+        coffeeMachine.MilkCoffee();
+        Assertions.assertEquals(490, coffeeMachine.getCoffee_powder());
+        Assertions.assertEquals(0.6, coffeeMachine.getMilk());
+        Assertions.assertEquals(1.8, coffeeMachine.getWater());
+    }
+    @Test
+    public void testStart(){
+
+    }
 
 }
