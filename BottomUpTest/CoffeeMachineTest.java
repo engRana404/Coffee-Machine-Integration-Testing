@@ -34,7 +34,6 @@ public class CoffeeMachineTest {
         coffeeMachine = new CoffeeMachine();
     }
 
-    @Before
     @Test
     public void testSetIngredient() {
         coffeeMachine.SetIngredient();
@@ -46,6 +45,8 @@ public class CoffeeMachineTest {
 
     @Test
     public void testCleanMachine() {
+        coffeeMachine.SetIngredient();
+
         coffeeMachine.CleanMachine();
 
         Assertions.assertEquals(0, coffeeMachine.getCoffee_powder());
