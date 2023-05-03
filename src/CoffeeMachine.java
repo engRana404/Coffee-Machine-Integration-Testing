@@ -127,7 +127,8 @@ static Scanner scan = new Scanner(System.in);
                     System.out.println("\nExiting...\n");
                     t = false;
                     break;
-            }   
+            }
+            break;
         } 
     }
 }
