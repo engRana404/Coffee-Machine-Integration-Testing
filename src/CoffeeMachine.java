@@ -2,7 +2,7 @@ package src;
 import java.util.Scanner;
 
 public class CoffeeMachine{
-    static Scanner scan = new Scanner(System.in);
+//    static Scanner scan = new Scanner(System.in);
     private double coffee_powder, milk, water;
     private int Coffee_Count = 0;
     public CoffeeMachine(){ //Default Constructor Initialization...
@@ -29,11 +29,11 @@ public class CoffeeMachine{
         this.water= 0;
         System.out.println("Cleaning Completed.");
     }
-    public void makecoffee(){  //Coffee Selection Menu
+    public void makecoffee(Scanner s){  //Coffee Selection Menu
         System.out.println("\n ------------------ ");
         System.out.println("|   Select Type:   |\n ------------------ \n| 1:  Black Coffee |\n| 2:  Milk Coffee  |\n| 0   to Discard   |");
         System.out.println(" ------------------ \n");
-        int t = scan.nextInt();
+        int t = s.nextInt();
         switch(t){
             case 1:
                 this.BlackCoffee();     //Call to BlackCoffee Method
@@ -120,7 +120,7 @@ public class CoffeeMachine{
                     this.CleanMachine();
                     break;
                 case 4:
-                    this.makecoffee();
+                    this.makecoffee(s);
                     break;
                 case 5:
                     System.out.println("\nWe Have Made "+this.Coffee_Count+" Coffees.");

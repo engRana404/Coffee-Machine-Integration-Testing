@@ -218,7 +218,7 @@ public class CoffeeMachineTest {
     public void testStartOption4(){
 
         //User choose first option
-        String userInput = String.format("4%n0%n6%n", System.lineSeparator(), System.lineSeparator(), System.lineSeparator());
+        String userInput = "4 0 6";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(inputStream);
 
@@ -226,15 +226,17 @@ public class CoffeeMachineTest {
         System.setOut(new PrintStream(outputStream));
 
         CoffeeMachine cm=new CoffeeMachine();
+        cm.SetIngredient();
         cm.start();
 
 
         //testing when start() function called and the user chooses option number 1
         String[] lines = outputStream.toString().split(System.lineSeparator());
         String actual = String.join("", lines);
-        String expected = String.format(" ----------------------------------------------------------------|                   Coffee Machine By Manikant                   |" +
+        String expected = String.format("\nFilling...Filling Completed. " +
+                "----------------------------------------------------------------|                   Coffee Machine By Manikant                   |" +
                 " ----------------------------------------------------------------\nCurrent Status: " +
-                "Available Coffee Power(Gram) 0.0Available Milk(Liter) 0.0Available Water(Liter) 0.0" +
+                "Available Coffee Power(Gram) 500.0Available Milk(Liter) 1.0Available Water(Liter) 2.0" +
                 "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
                 " -------------------------------- \n\n" +
                 "\n ------------------ " + "|   Select Type:   |\n ------------------ \n| 1:  Black Coffee |\n| 2:  Milk Coffee  |\n| 0   to Discard   |" + " ------------------ \n" +
@@ -244,10 +246,10 @@ public class CoffeeMachineTest {
 
         Assert.assertEquals(expected,actual);
 
-        Assertions.assertEquals(490, cm.getCoffee_powder());
+        Assertions.assertEquals(500, cm.getCoffee_powder());
         Assertions.assertEquals(1, cm.getMilk());
-        Assertions.assertEquals(1.8, cm.getWater());
-        Assertions.assertEquals(1, cm.getCoffee_Count());
+        Assertions.assertEquals(2, cm.getWater());
+        Assertions.assertEquals(0, cm.getCoffee_Count());
 
     }
 
