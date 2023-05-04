@@ -30,7 +30,7 @@ import src.CoffeeMachine;
 public class CoffeeMachineTest {
 
     private CoffeeMachine coffeeMachine;
-    
+
     @Before
     public void init() {
         coffeeMachine = new CoffeeMachine();
@@ -77,7 +77,7 @@ public class CoffeeMachineTest {
         String actual = outputStream.toString();
 
         String expected = String.format("\nAvailable Coffee Power(Gram) 0.0%sAvailable Water(Liter) 0.0%s" +
-                "\nSome Iteams Are Not Available, Please Fill before Making Coffee.%s",
+                        "\nSome Iteams Are Not Available, Please Fill before Making Coffee.%s",
                 System.lineSeparator(), System.lineSeparator(), System.lineSeparator());
 
         Assert.assertEquals(expected,actual);
@@ -172,6 +172,10 @@ public class CoffeeMachineTest {
 
         Assert.assertEquals(expected,actual);
 
+        Assertions.assertEquals(500.0, cm.getCoffee_powder());
+        Assertions.assertEquals(1, cm.getMilk());
+        Assertions.assertEquals(2, cm.getWater());
+
     }
 
     @Test
@@ -204,13 +208,17 @@ public class CoffeeMachineTest {
 
         Assert.assertEquals(expected,actual);
 
+        Assertions.assertEquals(0, cm.getCoffee_powder());
+        Assertions.assertEquals(0, cm.getMilk());
+        Assertions.assertEquals(0, cm.getWater());
+
     }
 
     @Test
     public void testStartOption4(){
 
         //User choose first option
-        String userInput = String.format("4 0 6%n", System.lineSeparator());
+        String userInput = String.format("4%n0%n6%n", System.lineSeparator(), System.lineSeparator(), System.lineSeparator());
         ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(inputStream);
 
@@ -235,6 +243,11 @@ public class CoffeeMachineTest {
                 "\nExiting...\n");
 
         Assert.assertEquals(expected,actual);
+
+        Assertions.assertEquals(490, cm.getCoffee_powder());
+        Assertions.assertEquals(1, cm.getMilk());
+        Assertions.assertEquals(1.8, cm.getWater());
+        Assertions.assertEquals(1, cm.getCoffee_Count());
 
     }
 
@@ -267,6 +280,9 @@ public class CoffeeMachineTest {
                 "\nExiting...\n");
 
         Assert.assertEquals(expected,actual);
+
+        Assertions.assertEquals(0, cm.getCoffee_Count());
+
 
     }
 

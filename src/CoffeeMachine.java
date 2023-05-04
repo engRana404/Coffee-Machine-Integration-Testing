@@ -1,8 +1,8 @@
 package src;
 import java.util.Scanner;
 
-    public class CoffeeMachine{
-static Scanner scan = new Scanner(System.in);
+public class CoffeeMachine{
+    static Scanner scan = new Scanner(System.in);
     private double coffee_powder, milk, water;
     private int Coffee_Count = 0;
     public CoffeeMachine(){ //Default Constructor Initialization...
@@ -18,9 +18,9 @@ static Scanner scan = new Scanner(System.in);
         System.out.println("Filling Completed.");
     }
     public void GetIngredient(){   //To Get Status
-            System.out.println("Available Coffee Power(Gram) "+String.format("%.1f",this.coffee_powder));
-            System.out.println("Available Milk(Liter) "+String.format("%.1f", this.milk));
-            System.out.println("Available Water(Liter) "+String.format("%.1f", this.water));
+        System.out.println("Available Coffee Power(Gram) "+String.format("%.1f",this.coffee_powder));
+        System.out.println("Available Milk(Liter) "+String.format("%.1f", this.milk));
+        System.out.println("Available Water(Liter) "+String.format("%.1f", this.water));
     }
     public void CleanMachine(){    //Initialization with Null In order to Clean Machine
         System.out.println("\nCleaning Machine...");
@@ -33,15 +33,15 @@ static Scanner scan = new Scanner(System.in);
         System.out.println("\n ------------------ ");
         System.out.println("|   Select Type:   |\n ------------------ \n| 1:  Black Coffee |\n| 2:  Milk Coffee  |\n| 0   to Discard   |");
         System.out.println(" ------------------ \n");
-        char t = scan.next().charAt(0);
+        int t = scan.nextInt();
         switch(t){
-            case '1':
+            case 1:
                 this.BlackCoffee();     //Call to BlackCoffee Method
                 break;
-            case '2':
+            case 2:
                 this.MilkCoffee();      //Call to MilkCoffee Method
                 break;
-            case '0':
+            case 0:
                 break;
         }
     }
@@ -131,6 +131,6 @@ static Scanner scan = new Scanner(System.in);
                     break;
             }
 
-        } 
+        }
     }
 }
