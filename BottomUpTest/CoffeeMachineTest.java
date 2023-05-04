@@ -111,39 +111,162 @@ public class CoffeeMachineTest {
         Assert.assertEquals(expected,actual);
     }
     @Test
-    public void testStart(){
+    public void testStartOption1(){
+
         //User choose first option
-        String userInput = String.format("1", System.lineSeparator());
+        String userInput = String.format("1 6%n", System.lineSeparator());
         ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(inputStream);
-
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 
-        coffeeMachine.start();
+        CoffeeMachine cm=new CoffeeMachine();
+        cm.start();
 
-        //checks the output stream after calling the start funciton
+
+        //testing when start() function called and the user chooses option number 1
         String[] lines = outputStream.toString().split(System.lineSeparator());
         String actual = String.join("", lines);
         String expected = String.format(" ----------------------------------------------------------------|                   Coffee Machine By Manikant                   |" +
                 " ----------------------------------------------------------------\nCurrent Status: " +
                 "Available Coffee Power(Gram) 0.0Available Milk(Liter) 0.0Available Water(Liter) 0.0" +
                 "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
-                " -------------------------------- \n\n");
+                " -------------------------------- \n\n" +
+                "------------- Status ------------Available Coffee Power(Gram) 0.0Available Milk(Liter) 0.0Available Water(Liter) 0.0---------------------------------" +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\nExiting...\n");
+
         Assert.assertEquals(expected,actual);
 
+    }
 
+    @Test
+    public void testStartOption2(){
 
+        //User choose first option
+        String userInput = String.format("2 6%n", System.lineSeparator());
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(inputStream);
 
-        //checks the output after the user choose the first option
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
-        lines = outputStream.toString().split(System.lineSeparator());
-        actual = String.join("", lines);
-        expected = String.format("------------- Status ------------Available Coffee Power(Gram) 0.0Available Water(Liter) 0.0---------------------------------");
+
+        CoffeeMachine cm=new CoffeeMachine();
+        cm.start();
+
+
+        //testing when start() function called and the user chooses option number 1
+        String[] lines = outputStream.toString().split(System.lineSeparator());
+        String actual = String.join("", lines);
+        String expected = String.format(" ----------------------------------------------------------------|                   Coffee Machine By Manikant                   |" +
+                " ----------------------------------------------------------------\nCurrent Status: " +
+                "Available Coffee Power(Gram) 0.0Available Milk(Liter) 0.0Available Water(Liter) 0.0" +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\nFilling..." + "Filling Completed." +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\nExiting...\n");
+
         Assert.assertEquals(expected,actual);
 
+    }
 
+    @Test
+    public void testStartOption3(){
+
+        //User choose first option
+        String userInput = String.format("3 6%n", System.lineSeparator());
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(inputStream);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        CoffeeMachine cm=new CoffeeMachine();
+        cm.start();
+
+
+        //testing when start() function called and the user chooses option number 1
+        String[] lines = outputStream.toString().split(System.lineSeparator());
+        String actual = String.join("", lines);
+        String expected = String.format(" ----------------------------------------------------------------|                   Coffee Machine By Manikant                   |" +
+                " ----------------------------------------------------------------\nCurrent Status: " +
+                "Available Coffee Power(Gram) 0.0Available Milk(Liter) 0.0Available Water(Liter) 0.0" +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\nCleaning Machine..." + "Cleaning Completed." +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\nExiting...\n");
+
+        Assert.assertEquals(expected,actual);
+
+    }
+
+    @Test
+    public void testStartOption4(){
+
+        //User choose first option
+        String userInput = String.format("4 0 6%n", System.lineSeparator());
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(inputStream);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        CoffeeMachine cm=new CoffeeMachine();
+        cm.start();
+
+
+        //testing when start() function called and the user chooses option number 1
+        String[] lines = outputStream.toString().split(System.lineSeparator());
+        String actual = String.join("", lines);
+        String expected = String.format(" ----------------------------------------------------------------|                   Coffee Machine By Manikant                   |" +
+                " ----------------------------------------------------------------\nCurrent Status: " +
+                "Available Coffee Power(Gram) 0.0Available Milk(Liter) 0.0Available Water(Liter) 0.0" +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\n ------------------ " + "|   Select Type:   |\n ------------------ \n| 1:  Black Coffee |\n| 2:  Milk Coffee  |\n| 0   to Discard   |" + " ------------------ \n" +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\nExiting...\n");
+
+        Assert.assertEquals(expected,actual);
+
+    }
+
+    @Test
+    public void testStartOption5(){
+
+        //User choose first option
+        String userInput = String.format("5 6%n", System.lineSeparator());
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(inputStream);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        CoffeeMachine cm=new CoffeeMachine();
+        cm.start();
+
+
+        //testing when start() function called and the user chooses option number 1
+        String[] lines = outputStream.toString().split(System.lineSeparator());
+        String actual = String.join("", lines);
+        String expected = String.format(" ----------------------------------------------------------------|                   Coffee Machine By Manikant                   |" +
+                " ----------------------------------------------------------------\nCurrent Status: " +
+                "Available Coffee Power(Gram) 0.0Available Milk(Liter) 0.0Available Water(Liter) 0.0" +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\nWe Have Made 0 Coffees." +
+                "\n -------------------------------- |1:     Status of Ingredient     |\n -------------------------------- \n|2:      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |\n -------------------------------- \n|4:        Make Coffee           |\n -------------------------------- \n|5: How many Coffee We have made?|\n -------------------------------- \n|6:        Exit                  |" +
+                " -------------------------------- \n\n" +
+                "\nExiting...\n");
+
+        Assert.assertEquals(expected,actual);
 
     }
 
